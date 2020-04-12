@@ -19,3 +19,20 @@ Copy paste the contents of the folder `FixSlowSceneViewMovement` anywhere you wa
 
 ### Limitations
 Only works for Windows users. It should work on Unity 2017, 2018 and 2019.
+
+### I don't know what problem are you talking about
+Add this script to any gameobject in your scene and try to move around. Be sure to move the mouse while pressing wasd for some time. You should go flying into space
+```cs
+// Make the editor slow by simulating something costly being executed.
+using System.Threading;
+using UnityEngine;
+
+[ExecuteInEditMode]
+public class MakeUnitySlow : MonoBehaviour {
+    public int milliseconds = 100;
+    void Update() {
+        Thread.Sleep(milliseconds);
+    }
+}
+```
+Now follow the `How to use` step described before and, without doing anything else, try again. The editor will keep being slow, but you won't end up in orbit anymore.
